@@ -1,0 +1,22 @@
+{
+    "name": "builtbyeleven/itn-retriever",
+    "description": "Retrieve ITN number from CBP ACE AESDirect",
+    "type": "library",
+    "require": {
+        "phpunit/phpunit-mock-objects": "^6.1",
+        "guzzlehttp/guzzle": "^6.3",
+        "vlucas/phpdotenv": "^3.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kennith Leung",
+            "email": "kennith.leung@gmail.com"
+        }
+    ], 
+    "autoload": {
+        "psr-4": {
+            "BuiltByEleven\\ItnRetriever\\": "src/"
+        }
+    }
+}
