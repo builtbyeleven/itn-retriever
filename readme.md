@@ -3,8 +3,7 @@
 ```
 use BuiltByEleven\ItnFactory;
 
-$aceFilingInquiry = new AceFilingInquiryFactory();
-$ace = $aceFilingInquiry->get($fid, $srn);
+$ace = new AceFilingInquiryFactory($fid, $srn);
 $ace->getItn();
 ```
 
