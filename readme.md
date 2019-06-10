@@ -1,7 +1,7 @@
 ## Usage
 
 ```
-use BuiltByEleven\ItnFactory;
+use BuiltByEleven\AceFilingInquiryFactory;
 
 $ace = new AceFilingInquiryFactory($fid, $srn);
 $ace->getItn();
