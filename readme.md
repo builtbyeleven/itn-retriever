@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/builtbyeleven/itn-retriever.svg?branch=master)](https://travis-ci.org/builtbyeleven/itn-retriever) 
+[![Style Status](https://github.styleci.io/repos/190818364/shield)](https://github.styleci.io/repos/190818364/shield)
+
+
+
 ## Usage
 
 ```
