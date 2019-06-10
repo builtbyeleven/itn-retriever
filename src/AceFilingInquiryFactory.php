@@ -2,9 +2,10 @@
 
 namespace BuiltByEleven\ItnRetriever;
 
+use BuiltByEleven\ItnRetriever\Parser;
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-use Exception;
 
 /**
  * 
@@ -39,7 +40,6 @@ class AceFilingInquiryFactory
 		$data = [
 			'FID' => $fid,
 			'SRN' => $srn,
-			'URL' => $url,
 		];
 
 		$params = http_build_query($data);
@@ -63,26 +63,13 @@ class AceFilingInquiryFactory
 			throw new Exception($e->getMessage());
 		}
 
-		$this->parse($res->getBody()->getContents());
+		$parser = new Parser();
+		$result = $parser->parse($res->getBody()->getContents());
 
-		return $this->sta;
-	}
+		$this->itn = $result['itn'];
+		$this->sta = $result['sta'];
 
-	/**
-	 * Parse result into array.
-	 */
-	private function parse($string)
-	{
-		preg_match('/(?<=FID=")(.*?)(?=")/', $string, $fid);
-		preg_match('/(?<=SRN=")(.*?)(?=")/', $string, $srn);
-		preg_match('/(?<=STA=")(.*?)(?=")/', $string, $sta);
-		preg_match('/(?<=ITN=")(.*?)(?=")/', $string, $itn);
-
-		// preg_match(pattern, subject)
-		$this->sta = $sta[0];
-		$this->itn = $itn[0];
-
-		return $this->sta;
+		return $result['sta'];
 	}
 
 	/**
