@@ -3,8 +3,8 @@
 ```
 use BuiltByEleven\ItnFactory;
 
-$itnRetriever = new ItnFactory();
-$ace = $itnRetriever->get($aceUsername, $acePassword, $fid, $srn, $returnUrl);
+$aceFilingInquiry = new AceFilingInquiryFactory();
+$ace = $aceFilingInquiry->get($fid, $srn);
 $ace->getItn();
 ```
 
